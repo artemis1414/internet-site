@@ -5,4 +5,26 @@ CREATE TABLE IF NOT EXISTS product
 	description TEXT NOT NULL,
 	price INTEGER NOT NULL,
 	value INTEGER NOT NULL
-)
+);
+
+CREATE TABLE IF NOT EXISTS app_user
+(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	email TEXT NOT NULL,
+	password TEXT NOT NULL,
+	name TEXT NOT NULL,
+	lastname TEXT NOT NULL,
+	phone TEXT
+);
+
+ALTER DATABASE web_application_db SET timezone TO 'Europe/Moscow'
+
+ALTER TABLE product ADD created_on TIMESTAMPTZ NOT NULL;
+ALTER TABLE product ALTER COLUMN created_on SET DEFAULT now();
+ALTER TABLE product	ADD updated_on TIMESTAMPTZ NOT NULL;
+ALTER TABLE product	ALTER COLUMN updated_on SET DEFAULT now();
+
+ALTER TABLE app_user ADD created_on TIMESTAMPTZ NOT NULL;
+ALTER TABLE app_user ALTER COLUMN created_on SET DEFAULT now();
+ALTER TABLE app_user ADD updated_on TIMESTAMPTZ NOT NULL;
+ALTER TABLE app_user ALTER COLUMN updated_on SET DEFAULT now();
