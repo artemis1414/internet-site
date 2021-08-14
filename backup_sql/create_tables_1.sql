@@ -4,7 +4,9 @@ CREATE TABLE IF NOT EXISTS product
 	name TEXT NOT NULL,
 	description TEXT NOT NULL,
 	price INTEGER NOT NULL,
-	value INTEGER NOT NULL
+	value INTEGER NOT NULL,
+	created_on TIMESTAMPTZ NOT NULL DEFAULT now(),
+	updated_on TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE TABLE IF NOT EXISTS app_user
@@ -14,17 +16,9 @@ CREATE TABLE IF NOT EXISTS app_user
 	password TEXT NOT NULL,
 	name TEXT NOT NULL,
 	lastname TEXT NOT NULL,
-	phone TEXT
+	phone TEXT,
+	created_on TIMESTAMPTZ NOT NULL DEFAULT now(),
+	updated_on TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-ALTER DATABASE web_application_db SET timezone TO 'Europe/Moscow'
-
-ALTER TABLE product ADD created_on TIMESTAMPTZ NOT NULL;
-ALTER TABLE product ALTER COLUMN created_on SET DEFAULT now();
-ALTER TABLE product	ADD updated_on TIMESTAMPTZ NOT NULL;
-ALTER TABLE product	ALTER COLUMN updated_on SET DEFAULT now();
-
-ALTER TABLE app_user ADD created_on TIMESTAMPTZ NOT NULL;
-ALTER TABLE app_user ALTER COLUMN created_on SET DEFAULT now();
-ALTER TABLE app_user ADD updated_on TIMESTAMPTZ NOT NULL;
-ALTER TABLE app_user ALTER COLUMN updated_on SET DEFAULT now();
+SET timezone TO 'Europe/Moscow'
