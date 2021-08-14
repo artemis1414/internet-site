@@ -1,8 +1,26 @@
+SET timezone TO 'Europe/Moscow'
+
 CREATE TABLE IF NOT EXISTS product
 (
 	id BIGSERIAL NOT NULL PRIMARY KEY,
 	name TEXT NOT NULL,
 	description TEXT NOT NULL,
 	price INTEGER NOT NULL,
-	value INTEGER NOT NULL
-)
+	value INTEGER NOT NULL,
+	created_on TIMESTAMPTZ NOT NULL DEFAULT now(),
+	updated_on TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS app_user
+(
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	email TEXT NOT NULL,
+	password TEXT NOT NULL,
+	name TEXT NOT NULL,
+	lastname TEXT NOT NULL,
+	phone TEXT,
+	created_on TIMESTAMPTZ NOT NULL DEFAULT now(),
+	updated_on TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+
