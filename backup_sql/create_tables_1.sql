@@ -1,3 +1,5 @@
+SET timezone TO 'Europe/Moscow'
+
 CREATE TABLE IF NOT EXISTS product
 (
 	id BIGSERIAL NOT NULL PRIMARY KEY,
@@ -21,4 +23,4 @@ CREATE TABLE IF NOT EXISTS app_user
 	updated_on TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-SET timezone TO 'Europe/Moscow'
+
