@@ -5,7 +5,7 @@ from .models import Product
 import os
 # Create your views here.
 def product(request):
-    return HttpResponse("<h1>Вы в приложении product</h1>")
+    return render(request, 'product/product_base.html')
 
 def detail(request, product_id):
     products_code = Product.objects.get(id=product_id)
