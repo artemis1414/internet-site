@@ -30,8 +30,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+AUTH_USER_MODEL = 'core.User'
 INSTALLED_APPS = [
+    'core',
     'product',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,3 +136,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
