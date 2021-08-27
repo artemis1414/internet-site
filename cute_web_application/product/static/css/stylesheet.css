@@ -37,12 +37,21 @@ h3 {
 .sizes {
     float: left;
     border-radius: 10px;
-    background-color: rgb(202, 202, 202);
     border: 3px solid rgb(0, 0, 0);
     outline: 5px solid #fff;
     max-width: 20%;
     padding: 5px;
     margin: 5px;
+}
+.nosizes {
+    float: left;
+    border-radius: 10px;
+    background-color: rgb(202, 202, 202);
+    border: 3px solid rgb(202, 202, 202);
+    outline: 5px solid #fff;
+    max-width: 20%;
+    padding: 5px;
+    margin: 5px ;
 }
 span {
     font: 18px Raleway;

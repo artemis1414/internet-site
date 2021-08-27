@@ -26,21 +26,17 @@
         <div style="float: left; height: 539px; width: 45%;">
             <div style="height: 100px;">
                 <h3>Размеры:</h3>
-                <div class="sizes">
-                    <span>36 RU</span>
-                </div>
-                <div class="sizes">
-                    <span>36.5 RU</span>
-                </div>
-                <div class="sizes">
-                    <span>37 RU</span>
-                </div>
-                <div class="sizes">
-                    <span>37.5 RU</span>
-                </div>
-                <div class="sizes">
-                    <span>38 RU</span>
-                </div>
+                {% for size, value in sizes %}
+                    {% if value %}
+                        <button class="sizes">
+                            <span>{{size}} RU</span>
+                        </button>
+                    {% else %}
+                        <button class="nosizes">
+                            <span>{{size}} RU</span>
+                        </button>
+                    {% endif %}
+                {% endfor %}
             </div>
             <div class="features">
                 <h3>Характеристики:</h3>

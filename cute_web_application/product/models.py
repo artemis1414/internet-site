@@ -15,6 +15,11 @@ class Product(models.Model):
     link = models.TextField(default='.', help_text='Ссылка на фото товара')
     update_on = models.DateTimeField(auto_now=True, help_text='Время обновления записи')
     created_on = models.DateTimeField(auto_now_add=True, help_text='Время создания записи')
+    size_36_value = models.IntegerField(default=0, help_text='Количество товара 36 размера')
+    size_37_value = models.IntegerField(default=0, help_text='Количество товара 37 размера')
+    size_38_value = models.IntegerField(default=0, help_text='Количество товара 38 размера')
+    size_39_value = models.IntegerField(default=0, help_text='Количество товара 39 размера')
+    size_40_value = models.IntegerField(default=0, help_text='Количество товара 40 размера')
 
     def __str__(self):
         return '{}'.format(self.name)

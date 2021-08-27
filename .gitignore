@@ -63,6 +63,7 @@ db.sqlite3
 db.sqlite3-journal
 settings.py
 .migrations
+migrations
 
 
 
@@ -96,4 +97,5 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+env.bat
 
