@@ -1,4 +1,4 @@
-SET timezone TO 'Europe/Moscow'
+SET timezone TO 'Europe/Moscow';
 
 CREATE TABLE IF NOT EXISTS product
 (
