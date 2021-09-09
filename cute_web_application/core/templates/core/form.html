@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        {% block title %}
+        <title>
+            Привествуем вас в нашем магазине!
+        </title>
+        {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    </head>
+    <body>
+        <div class = "block-top">
+            <div style="width: 100%;">
+                <div style="float: left; width: 33%; height: 50px;">
+                    <h2>ГЛАВНАЯ</h2>
+                </div>
+                <div style="float: left; width: 33%; height: 50px;">
+                    <h2>SOCCERSHOP </h2>
+                </div>
+                <div style="float: left; width: 33%; height: 50px;">
+                    <div style="float: left; width: 20%; height: 50px;">
+                        <img
+                        align="middle"
+                        src="https://image.flaticon.com/icons/png/512/633/633779.png"
+                        title="Личный кабинет"
+                        width="32"
+                        height="32"
+                        >
+                    </div>
+                    <div style="float: left; width: 20%; height: 50px;">
+                        <img
+                        align="middle"
+                        src="https://image.flaticon.com/icons/png/512/743/743155.png"
+                        title="Корзина"
+                        width="34"
+                        height="34"
+                        >
+                    </div>
+                    <div style="float: left; width: 60%; height: 50px;">
+                        <h2 class="menu_s">МЕНЮ</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %}
+        <div style="height: 500px;">
+            <h2>
+                Приветствуем Вас!
+            </h2>
+            <form name="register" method="post">
+                <p> Вход в систему:</p>
+                <div class="form_text">
+                    <p>Login:</p>
+                    <input type="text" name="login" value autofocus="true">
+                </div>
+                <div class="form_text">
+                    <p>Password:</p>
+                    <input type="text" name="password" value autofocus="true">
+                </div>
+                <div>
+                    <button type="submit" style="float: left">
+                        <p>sign in</p>
+                    </button>
+                    <button type="submit" style="float: left">
+                        <p>sign up</p>
+                    </button>
+                </div>
+            </form>
+        </div>
+        {% endblock %}
+        <div class="block-bottom">
+            <div style="float: left; width: 33%; height: 205px;">
+            <h2>SOCCERSHOP </h2>
+            </div>
+            <div style="float: left; width: 33%; height: 205px;">
+                <h2>ГЛАВНАЯ</h2>
+                <h2>КАТАЛОГ</h2>
+                <h2>КОНТАКТЫ</h2>
+            </div>
+            <div style="float: left; width: 33%; height: 205px;">
+                <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
+            </div>
+        </div>
+    </body>
+</html>

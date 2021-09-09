@@ -1,0 +1,23 @@
+{% extends 'core/form.html' %}
+
+{% block content %}
+<h2>
+    Приветствуем Вас!
+</h2>
+    <form name="register" method="post">
+        <p> Регистрация в системе:</p>
+        <div class="form_text">
+            <p>Login:</p>
+            <input type="text" name="login" value autofocus="true">
+        </div>
+        <div class="form_text">
+            <p>Password:</p>
+            <input type="text" name="password" value autofocus="true">
+        </div>
+        <div>
+            <button type="submit" style="float: left">
+                <p>Завершить регистрацию</p>
+            </button>
+        </div>
+    </form>
+{% endblock %}
