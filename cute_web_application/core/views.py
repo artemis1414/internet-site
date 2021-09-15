@@ -13,7 +13,8 @@ def sign_up(request):
             user = User.objects.create_user(form.cleaned_data)
             user.save()
         else:
-            return ValidationError
+            data = {'form': form}
+            return render(request, 'form_registration_alert.html', data)
     form = SignUpForm()
     data = {'form': form}
     return render(request, 'form_registration.html', data)

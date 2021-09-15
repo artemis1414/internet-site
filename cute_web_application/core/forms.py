@@ -6,5 +6,5 @@ class SignUpForm(forms.Form):
     first_name = forms.CharField(label='Имя')
     last_name = forms.CharField(label='Фамилия')
     password = forms.CharField(label="Пароль")
-    phone = forms.DecimalField(label="Телефон", max_digits=11, decimal_places=0)
+    phone = forms.DecimalField(label="Телефон", max_digits=11, decimal_places=0, required=False)
     email = forms.EmailField(label="Email")
