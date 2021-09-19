@@ -2,6 +2,12 @@ h2 {
     font: 18px Raleway;
     letter-spacing: 5px;
 }
+.product_catalog {
+    float: left;
+}
+a {
+    text-decoration: none;
+}
 .menu_s{
     text-decoration: underline;
 }
@@ -33,6 +39,7 @@ h1 {
 h3 {
     font: 18px Raleway;
     font-weight: 500;
+    font-feature-settings: "lnum"
 }
 .sizes {
     float: left;
@@ -118,6 +125,4 @@ p {
     cursor: pointer;
     transition: 0.3s;
 }
-.closebtn:hover {
-    color: black;
-}
+

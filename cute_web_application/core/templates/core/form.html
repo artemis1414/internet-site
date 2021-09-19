@@ -14,10 +14,10 @@
         <div class = "block-top">
             <div style="width: 100%;">
                 <div style="float: left; width: 33%; height: 50px;">
-                    <h2>ГЛАВНАЯ</h2>
+                    <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
                 </div>
                 <div style="float: left; width: 33%; height: 50px;">
-                    <h2>SOCCERSHOP </h2>
+                    <h2><a href="{% url 'product' %}">SOCCERSHOP </a></h2>
                 </div>
                 <div style="float: left; width: 33%; height: 50px;">
                     <div style="float: left; width: 20%; height: 50px;">
@@ -72,15 +72,15 @@
         {% endblock %}
         <div class="block-bottom">
             <div style="float: left; width: 33%; height: 205px;">
-            <h2>SOCCERSHOP </h2>
+                <h2><a href="{% url 'product' %}">SOCCERSHOP</a></h2>
             </div>
             <div style="float: left; width: 33%; height: 205px;">
-                <h2>ГЛАВНАЯ</h2>
-                <h2>КАТАЛОГ</h2>
+                <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
+                <h2><a href="{% url 'product' %}">КАТАЛОГ</a></h2>
                 <h2>КОНТАКТЫ</h2>
             </div>
             <div style="float: left; width: 33%; height: 205px;">
-                <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
+                <h2><a href="{% url 'core' %}">ЛИЧНЫЙ КАБИНЕТ</a></h2>
             </div>
         </div>
     </body>

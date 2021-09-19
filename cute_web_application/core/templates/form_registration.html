@@ -6,7 +6,7 @@
 </h2>
     <form action="/signup/" name="register" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <div>
             <button type="submit" value="Submit" style="float: left">
                 <p>Завершить регистрацию</p>
