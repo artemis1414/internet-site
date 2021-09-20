@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.sign_in, name='core'),
-    path('signup/', views.sign_up, name='sign_up')
+    path('signup/', views.sign_up, name='sign_up'),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]

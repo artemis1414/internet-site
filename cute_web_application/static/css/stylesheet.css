@@ -7,6 +7,7 @@ h2 {
 }
 a {
     text-decoration: none;
+    position: relative;
 }
 .menu_s{
     text-decoration: underline;
@@ -125,4 +126,10 @@ p {
     cursor: pointer;
     transition: 0.3s;
 }
-
+.items_catalog {
+    width: 30%;
+    position: relative;
+    display: flex;
+    float: left;
+    padding: 10px;
+    }
