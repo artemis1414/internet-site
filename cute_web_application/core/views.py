@@ -9,11 +9,8 @@ def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            data_user = []
-            for field in form.cleaned_data.values():
-                data_user.append(field)
-            print(form.cleaned_data)
-            user = User.objects.create_user(data_user)
+            data_user = form.cleaned_data
+            user = User.objects.create_user(**data_user)
             user.save()
         else:
             data = {'form': form}
