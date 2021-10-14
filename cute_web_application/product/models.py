@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Product(models.Model):
     description = models.TextField(default='description', help_text='Описание товара')
     price = models.IntegerField(default=0, help_text='Цена товара')
     value = models.IntegerField(default=0, help_text='Количество товара')
-    category = models.TextField(default='category', help_text='Тип товара')
+    category_id = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
     material = models.TextField(default='material', help_text='Материал товара')
     color = models.TextField(default='color', help_text='Цвет товара')
     manufacturer = models.TextField(default='manufacturer', help_text='Производитель товара')
@@ -23,3 +24,7 @@ class Product(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
+
+class Category(models.Model):
+    category = models.TextField(default='category', help_text='Категория')
+

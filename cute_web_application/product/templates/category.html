@@ -49,20 +49,14 @@
         {% block content %}
         <div>
             <h1>
-                Каталог
+                Категории
             </h1>
         </div>
         <div style="width:100%; overflow: hidden; ">
-            {% for i in product %}
+            {% for i in category %}
             <div style="position: relative">
-               <a class="items_catalog" href="item{{i.id}}"><div class="product_catalog">
-                    <span>{{i.name}}</span>
-                    <img
-                        src="{{i.link}}"
-                        width="100%"
-                        height="100%"
-                        title="{{i.name}}"
-                    >
+               <a class="items_catalog" href="{{i.id}}"><div class="product_catalog">
+                    <span>{{i.category}}</span>
                 </div></a>
             </div>
             {% endfor %}
