@@ -47,27 +47,8 @@
         {% block content %}
         <div style="height: 500px;">
             <h2>
-                Приветствуем Вас!
+                Вход прошел успешно!
             </h2>
-            <form name="register" method="post" action="{% url 'login' %}">
-                {% csrf_token %}
-                <p> Вход в систему:</p>
-                {{ form.as_p }}
-                <div>
-                    <button type="submit" value="Log in">
-                        <p>Войти</p>
-                    </button>
-                </div>
-            </form>
-            <div>
-                <p>
-                    Вы еще не зарегистрированы в системе?
-                </p>
-                 <button style="float: left" value="sign_up">
-                <a href="{% url 'sign_up' %}">Присоединяйтесь!</a>
-            </button>
-            </div>
-
         </div>
         {% endblock %}
         <div class="block-bottom">
