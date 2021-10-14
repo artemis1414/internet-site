@@ -49,7 +49,8 @@
             <h2>
                 Приветствуем Вас!
             </h2>
-            <form name="register" method="post">
+            <form name="register" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
                 <p> Вход в систему:</p>
                 <div class="form_text">
                     <p>Login:</p>
@@ -60,7 +61,7 @@
                     <input type="text" name="password" value autofocus="true">
                 </div>
                 <div>
-                    <button type="submit" style="float: left">
+                    <button type="submit" style="float: left" value="login">
                         <p>sign in</p>
                     </button>
                     <button type="submit" style="float: left">

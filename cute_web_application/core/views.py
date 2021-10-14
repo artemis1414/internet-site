@@ -9,8 +9,8 @@ def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            print(form)
-            user = User.objects.create_user(form.cleaned_data)
+            data_user = form.cleaned_data
+            user = User.objects.create_user(**data_user)
             user.save()
         else:
             data = {'form': form}

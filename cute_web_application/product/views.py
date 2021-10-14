@@ -5,7 +5,8 @@ from .models import Product
 import os
 # Create your views here.
 def product(request):
-    return render(request, 'product/product_base.html')
+    list_product = Product.objects.all()
+    return render(request, 'product/product_base.html', context={'product': list_product})
 
 def detail(request, product_id):
     products_code = Product.objects.get(id=product_id)
@@ -14,3 +15,6 @@ def detail(request, product_id):
     for i in range(36, 41):
         sizes.append((f'{i}', sizes_dict[f'size_{i}_value']))
     return render(request, 'product.html', context={'product': products_code, 'sizes': sizes, })
+
+def catalog(request, product_id):
+    return render(request, 'product.html')

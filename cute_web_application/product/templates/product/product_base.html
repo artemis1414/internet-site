@@ -5,7 +5,7 @@
     <meta charset="utf-8">
         {% block title %}
         <title>
-            app Product
+            Каталог
         </title>
         {% endblock %}
     <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
@@ -14,13 +14,14 @@
         <div class = "block-top">
             <div style="width: 100%;">
                 <div style="float: left; width: 33%; height: 50px;">
-                    <h2>ГЛАВНАЯ</h2>
+                    <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
                 </div>
                 <div style="float: left; width: 33%; height: 50px;">
-                    <h2>SOCCERSHOP </h2>
+                    <h2><a href="{% url 'product' %}">SOCCERSHOP </a></h2>
                 </div>
                 <div style="float: left; width: 33%; height: 50px;">
                     <div style="float: left; width: 20%; height: 50px;">
+                        <a href="{% url 'core' %}">
                         <img
                         align="middle"
                         src="https://image.flaticon.com/icons/png/512/633/633779.png"
@@ -28,6 +29,7 @@
                         width="32"
                         height="32"
                         >
+                        </a>
                     </div>
                     <div style="float: left; width: 20%; height: 50px;">
                         <img
@@ -45,23 +47,39 @@
             </div>
         </div>
         {% block content %}
-        <div style="height: 500px;">
+        <div>
             <h1>
-                Приветствуем Вас на главной странице приложения Product
+                Каталог
             </h1>
         </div>
+        <div style="width:100%; overflow: hidden; ">
+            {% for i in product %}
+            <div style="position: relative">
+               <a class="items_catalog" href="{{i.id}}"><div class="product_catalog">
+                    <span>{{i.name}}</span>
+                    <img
+                        src="{{i.link}}"
+                        width="100%"
+                        height="100%"
+                        title="{{i.name}}"
+                    >
+                </div></a>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="width:100%; height:500px;"></div>
         {% endblock %}
         <div class="block-bottom">
             <div style="float: left; width: 33%; height: 205px;">
             <h2>SOCCERSHOP </h2>
             </div>
             <div style="float: left; width: 33%; height: 205px;">
-                <h2>ГЛАВНАЯ</h2>
-                <h2>КАТАЛОГ</h2>
+                <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
+                <h2><a href="{% url 'product' %}">КАТАЛОГ </a></h2>
                 <h2>КОНТАКТЫ</h2>
             </div>
             <div style="float: left; width: 33%; height: 205px;">
-                <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
+                <h2><a href="{% url 'core' %}">ЛИЧНЫЙ КАБИНЕТ</a></h2>
             </div>
         </div>
     </body>
