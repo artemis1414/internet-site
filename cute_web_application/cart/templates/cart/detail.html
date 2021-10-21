@@ -1,0 +1,48 @@
+{% extends 'product/product_base.html' %}
+{% load static %}
+{% block title %}
+<title>
+    Ваша корзина
+</title>
+{% endblock %}
+
+{% block content%}
+<div class = "block-names-product">
+    <h1>Ваша Корзина </h1>
+</div>
+<table class="cart">
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Unit price</th>
+        <th>Finally Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in cart %}
+        {% with product=item.product %}
+            <tr>
+                <td>
+                    <a href="{{product.id}}">
+                        <img src="{{product.link}}">
+                    </a>
+                </td>
+                <td>{{product.name}}</td>
+                <td>{{item.quantity}}</td>
+                <td><a href="{% url 'cart:cart_remove' product.id%}"></a></td>
+                <td class="num">{{item.price}} рублей</td>
+                <td class="num">{{item.total_price}} рублей</td>
+            </tr>
+        {% endwith %}
+    {% endfor %}
+    <tr class="total">
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">{{cart.get_total_price}}</td>
+    </tr>
+    </tbody>
+</table>
+{% endblock %}

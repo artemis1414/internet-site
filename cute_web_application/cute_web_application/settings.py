@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 AUTH_USER_MODEL = 'core.User'
 INSTALLED_APPS = [
+    'cart',
     'core',
     'product',
     'django.contrib.admin',
@@ -137,3 +138,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'core'
+CART_SESSION_ID = 'cart'

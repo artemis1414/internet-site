@@ -24,7 +24,7 @@ class Product(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
-
+7
 class Category(models.Model):
     category = models.TextField(default='category', help_text='Категория')
 

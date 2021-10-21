@@ -49,13 +49,9 @@
                 <span class="gray">ЦЕНА:</span>
                 <h4>{{product.price}} руб.</h4>
             </div>
-
-                <form action="{% url 'cart_add' product.id %}" method="post">
-                    {{ cart_product_form }}
-                    {% csrf_token %}
-                    <input class="shopping-cart-button" type="submit" value="в корзину">
-                </form>
-
+            <div class="shopping-cart-button">
+                <p class="container">В КОРЗИНУ</p>
+            </div>
         </div>
     </div>
 </div>
