@@ -14,7 +14,7 @@
         <div class = "block-top">
             <div style="width: 100%;">
                 <div style="float: left; width: 33%; height: 50px;">
-                    <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
+                    <h2>ГЛАВНАЯ</h2>
                 </div>
                 <div style="float: left; width: 33%; height: 50px;">
                     <h2><a href="{% url 'product' %}">SOCCERSHOP </a></h2>
@@ -32,6 +32,7 @@
                         </a>
                     </div>
                     <div style="float: left; width: 20%; height: 50px;">
+                        <a href="{% url 'cart:cart' %}">
                         <img
                         align="middle"
                         src="https://image.flaticon.com/icons/png/512/743/743155.png"
@@ -39,6 +40,7 @@
                         width="34"
                         height="34"
                         >
+                        </a>
                     </div>
                     <div style="float: left; width: 60%; height: 50px;">
                         <h2 class="menu_s">МЕНЮ</h2>

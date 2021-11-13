@@ -8,9 +8,10 @@ class Cart:
 
     def __init__(self, request):
         self.session = request.session
-        cart = self.session.get(settings.CART_SESSION_ID)
-        if not cart:
-            cart = self.session['cart'] = {}
+        self.cart = self.session.get(settings.CART_SESSION_ID)
+        if not self.cart:
+            cart = {}
+            self.session['cart'] = cart
             self.cart = cart
 
     def add(self, product, quantity=1, update_quantity=False):
@@ -35,9 +36,9 @@ class Cart:
 
     def __iter__(self):
         product_ids = self.cart.keys()
-        products = Product.object.filter(id__in=product_ids)
+        products = Product.objects.filter(id__in=product_ids)
         for product in products:
-            self.cart[str(product.id)['product']] = product
+            self.cart[str(product.id)]['product'] = product
         for item in self.cart.values():
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']

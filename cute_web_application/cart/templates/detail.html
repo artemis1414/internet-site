@@ -1,63 +1,48 @@
-{% extends 'product/product_base.html' %}
-
+{% extends 'cart/detail.html' %}
+{% load static %}
 {% block title %}
 <title>
-    {{product.name}}
+    Ваша корзина
 </title>
 {% endblock %}
 
 {% block content%}
 <div class = "block-names-product">
-    <h1>{{product.name}} </h1>
+    <h1>Ваша Корзина </h1>
 </div>
-<div style="height: 30px;">
-    <span class="gray">Код товара: {{product.id}}</span>
-</div>
-<div class= "product-features">
-    <div style="width: 100%">
-        <div style="float: left; width: 570px; height: 100%;">
-            <img
-                    src="{{product.link}}"
-                    width="570"
-                    height="535"
-                    title="{{product.name}}"
-                    >
-        </div>
-        <div style="float: left; height: 539px; width: 45%;">
-            <div style="height: 100px;">
-                <h3>Размеры:</h3>
-                {% for size, value in sizes %}
-                    {% if value %}
-                        <button class="sizes">
-                            <span>{{size}} RU</span>
-                        </button>
-                    {% else %}
-                        <button class="nosizes">
-                            <span>{{size}} RU</span>
-                        </button>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="features">
-                <h3>Характеристики:</h3>
-                <span class="gray">Тип:</span> <span>{{product.category_id.category}}</span><br>
-                <span class="gray">Цвет:</span> <span>{{product.color}}</span><br>
-                <span class="gray">Материал внешний:</span> <span>{{product.material}}</span><br>
-                <span class="gray">Производитель:</span> <span>{{product.manufacturer}}</span>
-            </div>
-            <div class="price">
-                <span class="gray">ЦЕНА:</span>
-                <h4>{{product.price}} руб.</h4>
-            </div>
-            <div class="shopping-cart-button">
-                <p class="container">В КОРЗИНУ</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="about-product">
-    <h5>Описание:</h5>
-    <p>{{product.description}}
-    </p>
-</div>
+<table class="cart">
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Unit price</th>
+        <th>Finally Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in cart %}
+        {% with product=item.product %}
+            <tr>
+                <td>
+                    <a href="{{product.id}}">
+                        <img src="{{product.link}}">
+                    </a>
+                </td>
+                <td>{{product.name}}</td>
+                <td>{{item.quantity}}</td>
+                <td><a href="{% url 'cart:cart_remove' product.id%}"></a></td>
+                <td class="num">{{item.price}} рублей</td>
+                <td class="num">{{item.total_price}} рублей</td>
+            </tr>
+        {% endwith %}
+    {% endfor %}
+    <tr class="total">
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">{{cart.get_total_price}}</td>
+    </tr>
+    </tbody>
+</table>
 {% endblock %}
