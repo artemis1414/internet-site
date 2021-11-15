@@ -11,8 +11,12 @@ def sign_up(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             data_user = form.cleaned_data
+            if User.objects.filter(username=data_user['username']).exists():
+                data = {'form': form}
+                return render(request, 'form_registration_alert.html', data)
             user = User.objects.create_user(**data_user)
             user.save()
+            return render(request, 'form_complete.html')
         else:
             data = {'form': form}
             return render(request, 'form_registration_alert.html', data)
