@@ -21,6 +21,7 @@ class Cart:
         if update_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:
+            print(product_id)
             self.cart[product_id]['quantity'] += quantity
         self.save()
 
