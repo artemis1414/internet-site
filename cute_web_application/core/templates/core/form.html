@@ -62,6 +62,10 @@
             <p>
                 Телефон: {{user.phone}}
             </p>
+            <a href="{% url 'sell_history'%}"><p>
+                История ваших заказов
+            </p></a>
+            <a href="{% url 'change_profile' %}"><p>Изменить данные профиля</p></a>
             <a href="{% url 'logout' %}"><p>
                 Выйти из аккаунта
             </p></a>

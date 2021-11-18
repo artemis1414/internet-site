@@ -8,7 +8,7 @@
 
 {% block content%}
 <div class = "block-names-product">
-    <h1>Ваша Корзина </h1>
+    <h1>Оформление заказа </h1>
 </div>
 <table class="cart">
     <thead>
@@ -47,10 +47,16 @@
     </tr>
     </tbody>
 </table>
-<div style="height:100px">
-    {% if cart.cart %}
-    <p>Оформить заказ?</p>
-    <a href="{% url 'cart:order' %}"><button>Перейти к оформлению заказа</button></a>
-    {% endif %}
+<div class="str_order">
+    <form name="order" method="post" action="{% url 'cart:order' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <button type="submit" value="order">
+                <p>Оформить заказ</p>
+            </button>
+        </div>
+    </form>
 </div>
+
 {% endblock %}

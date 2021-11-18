@@ -1,49 +1,4 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-        {% block title %}
-        <title>
-            Привествуем вас в нашем магазине!
-        </title>
-        {% endblock %}
-    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
-    </head>
-    <body>
-        <div class = "block-top">
-            <div style="width: 100%;">
-                <div style="float: left; width: 33%; height: 50px;">
-                    <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
-                </div>
-                <div style="float: left; width: 33%; height: 50px;">
-                    <h2><a href="{% url 'product' %}">SOCCERSHOP </a></h2>
-                </div>
-                <div style="float: left; width: 33%; height: 50px;">
-                    <div style="float: left; width: 20%; height: 50px;">
-                        <img
-                        align="middle"
-                        src="https://image.flaticon.com/icons/png/512/633/633779.png"
-                        title="Личный кабинет"
-                        width="32"
-                        height="32"
-                        >
-                    </div>
-                    <div style="float: left; width: 20%; height: 50px;">
-                        <img
-                        align="middle"
-                        src="https://image.flaticon.com/icons/png/512/743/743155.png"
-                        title="Корзина"
-                        width="34"
-                        height="34"
-                        >
-                    </div>
-                    <div style="float: left; width: 60%; height: 50px;">
-                        <h2 class="menu_s">МЕНЮ</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+{% extends 'core/form.html' %}
         {% block content %}
         <div style="height: 500px;">
             <h2>
@@ -67,21 +22,5 @@
                 <a href="{% url 'sign_up' %}">Присоединяйтесь!</a>
             </button>
             </div>
-
         </div>
         {% endblock %}
-        <div class="block-bottom">
-            <div style="float: left; width: 33%; height: 205px;">
-                <h2><a href="{% url 'product' %}">SOCCERSHOP</a></h2>
-            </div>
-            <div style="float: left; width: 33%; height: 205px;">
-                <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
-                <h2><a href="{% url 'product' %}">КАТАЛОГ</a></h2>
-                <h2>КОНТАКТЫ</h2>
-            </div>
-            <div style="float: left; width: 33%; height: 205px;">
-                <h2><a href="{% url 'core' %}">ЛИЧНЫЙ КАБИНЕТ</a></h2>
-            </div>
-        </div>
-    </body>
-</html>
