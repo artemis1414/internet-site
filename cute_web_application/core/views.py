@@ -12,12 +12,16 @@ def sign_up(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             data_user = form.cleaned_data
+            data = {'form': form}
             if User.objects.filter(username=data_user['username']).exists():
-                data = {'form': form}
                 return render(request, 'form_registration_alert.html', data)
-            user = User.objects.create_user(**data_user)
-            user.save()
-            return render(request, 'form_complete.html')
+            if data_user['password_1'] == data_user['password']:
+                del data_user['password_1']
+                user = User.objects.create_user(**data_user)
+                user.save()
+                return render(request, 'form_complete.html')
+            else:
+                return render(request, 'form_registration_alert_password.html', data)
         else:
             data = {'form': form}
             return render(request, 'form_registration_alert.html', data)
@@ -66,9 +70,18 @@ def update_profile(request):
         form = UpdateProfile(request.POST)
         if form.is_valid():
             data_form = form.cleaned_data
-            user.first_name = data_form['first_name']
-            user.last_name = data_form['last_name']
-            user.phone = data_form['phone']
+            if data_form['first_name']:
+                user.first_name = data_form['first_name']
+            if data_form['last_name']:
+                user.last_name = data_form['last_name']
+            if data_form['phone']:
+                user.phone = data_form['phone']
+            if data_form['password_1'] == data_form['password']:
+                if data_form['password']:
+                    user.set_password(data_form['password'])
+            else:
+                context = {'form': form}
+                return render(request, 'update_profile_alert.html', context=context)
             user.save()
             return render(request, 'update_complete.html')
     context = {'form': form}

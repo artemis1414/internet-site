@@ -1,0 +1,20 @@
+{% extends 'core/form.html' %}
+
+{% block content %}
+<h2>
+    Приветствуем Вас!
+</h2>
+    <form action="/change_profile/" name="profile_update" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Изменение пароля не удалось! Пароли не совпадают!
+        </div>
+        <div>
+            <button type="submit" value="Submit" style="float: left">
+                <p>Завершить изменение</p>
+            </button>
+        </div>
+    </form>
+{% endblock %}
