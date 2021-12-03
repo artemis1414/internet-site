@@ -4,16 +4,16 @@
 <h2>
     Приветствуем Вас!
 </h2>
-    <form action="/signup/" name="register" method="post">
+    <form action="/change_profile/" name="profile_update" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        Регистрация не удалась! Либо такой пользователь существует, либо данные введены неверно, проверьте поля!
+        Изменение пароля не удалось! Пароли не совпадают!
         </div>
         <div>
             <button type="submit" value="Submit" style="float: left">
-                <p>Завершить регистрацию</p>
+                <p>Завершить изменение</p>
             </button>
         </div>
     </form>

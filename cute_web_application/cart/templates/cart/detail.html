@@ -5,7 +5,7 @@
     <meta charset="utf-8">
         {% block title %}
         <title>
-            Привествуем вас в нашем магазине!
+            Каталог
         </title>
         {% endblock %}
     <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
@@ -28,7 +28,8 @@
                         title="Личный кабинет"
                         width="32"
                         height="32"
-                        ></a>
+                        >
+                        </a>
                     </div>
                     <div style="float: left; width: 20%; height: 50px;">
                         <a href="{% url 'cart:cart' %}">
@@ -48,43 +49,14 @@
             </div>
         </div>
         {% block content %}
-        <div style="height: 500px;">
-            {% if user.is_authenticated %}
-            <h2>
-                Приветствуем Вас, {{user.username }} !
-            </h2>
-            <p>
-                Ваше имя: {{user.first_name}}
-            </p>
-            <p>
-                Фамилия: {{user.last_name}}
-            </p>
-            <p>
-                Телефон: {{user.phone}}
-            </p>
-            <a href="{% url 'sell_history'%}"><p>
-                История ваших заказов
-            </p></a>
-            <a href="{% url 'change_profile' %}"><p>Изменить данные профиля</p></a>
-            <a href="{% url 'logout' %}"><p>
-                Выйти из аккаунта
-            </p></a>
-            {% else %}
-            <h2>
-                Приветствуем Вас!
-            </h2>
-            <p> Вы не авторизованы.</p>
-            <a href="{% url 'login' %}"> Войти </a>
-            {% endif %}
-        </div>
         {% endblock %}
         <div class="block-bottom">
             <div style="float: left; width: 33%; height: 205px;">
-                <h2><a href="{% url 'product' %}">SOCCERSHOP</a></h2>
+            <h2>SOCCERSHOP </h2>
             </div>
             <div style="float: left; width: 33%; height: 205px;">
                 <h2><a href="{% url 'core' %}">ГЛАВНАЯ</a></h2>
-                <h2><a href="{% url 'product' %}">КАТАЛОГ</a></h2>
+                <h2><a href="{% url 'product' %}">КАТАЛОГ </a></h2>
                 <h2>КОНТАКТЫ</h2>
             </div>
             <div style="float: left; width: 33%; height: 205px;">

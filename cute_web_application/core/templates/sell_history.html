@@ -1,0 +1,15 @@
+{% extends 'core/form.html' %}
+
+{% block content %}
+<h2>
+    История ваших заказов
+</h2>
+{% if sell %}
+    {% for order in sell %}
+    <a href="{% url 'detail_order' order.id%}"><p>Заказ №{{order.id}} на сумму {{order.cost}} рублей. Дата создания: {{order.created_on}}</p></a>
+    {% endfor %}
+{% else %}
+    <p>Тут ничего нет:(</p>
+    <a href="{% url 'product'%}">Может быть посмотрим что можно заказать?</a>
+{% endif %}
+{% endblock %}

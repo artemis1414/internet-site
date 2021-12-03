@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 AUTH_USER_MODEL = 'core.User'
 INSTALLED_APPS = [
+    'cart',
     'core',
     'product',
     'django.contrib.admin',
@@ -131,9 +132,9 @@ STATICFILES_DIRS = [
 ]
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'core'
+CART_SESSION_ID = 'cart'

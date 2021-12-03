@@ -1,0 +1,17 @@
+{% extends 'cart/detail.html' %}
+{% load static %}
+{% block title %}
+<title>
+    Ваша корзина
+</title>
+{% endblock %}
+
+{% block content %}
+<div class = "block-names-product">
+    <h1>Заказ №{{order.id}} на сумму {{order.cost}} рублей успешно оформлен! </h1>
+</div>
+<div style="height:100px">
+
+</div>
+
+{% endblock %}
